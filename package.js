@@ -1,6 +1,6 @@
 Package.describe({
   name: 'qualia:one',
-  version: '0.0.9',
+  version: '0.1.0',
   summary: 'Prevent two client bundles from being built.',
   git: 'http://github.com/qualialabs/one',
   documentation: 'README.md'
