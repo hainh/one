@@ -4,9 +4,13 @@ This package allows you to restrict Meteor to only build a single client bundle 
 
 ## Installation
 
+This package must be installed locally, in the source tree of your application. Navigate to the root of your application and run the following command:
+
 ```sh
-$ meteor add qualia:one
+mkdir -p packages/ && cd packages/ && git clone https://github.com/qualialabs/one && mv one qualia_one && cd .. && meteor add qualia:one
 ```
+
+It is unfortunate that this package cannot simply be installed from Atmosphere, but the build system treats locally installed packages differently from remote ones.
 
 ## Usage
 
