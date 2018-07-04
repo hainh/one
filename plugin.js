@@ -1,14 +1,12 @@
-var path         = Npm.require('path'),
-    mainModule   = global.process.mainModule,
-    absPath      = mainModule.filename.split(path.sep).slice(0, -1).join(path.sep),
-    require      = function(filePath) {
-      return mainModule.require(path.resolve(absPath, filePath));
-    },
-    bundleType = process.env.QUALIA_ONE_BUNDLE_TYPE;
-;
-
+var bundleType = process.env.QUALIA_ONE_BUNDLE_TYPE;
 if (bundleType === 'modern' || bundleType === 'legacy') {
-  var PlatformList = require('./project-context.js').PlatformList,
+  var path         = Npm.require('path'),
+      mainModule   = global.process.mainModule,
+      absPath      = mainModule.filename.split(path.sep).slice(0, -1).join(path.sep),
+      require      = function(filePath) {
+        return mainModule.require(path.resolve(absPath, filePath));
+      },
+      PlatformList = require('./project-context.js').PlatformList,
       getWebArchs  = PlatformList.prototype.getWebArchs,
       blacklist    = [
         bundleType === 'modern' ? 'web.browser.legacy' : 'web.browser'
